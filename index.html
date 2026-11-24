@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#061d3a">
+<title>NetQuest VR/AR | Aprende redes</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="#" data-page="home"><span class="logo">⌘</span><span>NetQuest<small>VR/AR</small></span></a>
+  <p class="tagline">Aprende, explora, domina las redes</p>
+  <div class="top-note"><strong>Prototipo interactivo multimedia</strong><small>Realidad Aumentada · Realidad Virtual · Gamificación</small></div>
+  <button class="hamburger" id="hamburger" aria-label="Abrir menú">☰</button>
+</header>
+<div class="layout">
+<aside class="sidebar" id="sidebar">
+  <div class="side-label">PLATAFORMA DE APRENDIZAJE</div>
+  <button class="nav active" data-page="home">⌂ <span>Inicio</span></button>
+  <button class="nav" data-page="lessons">▤ <span>Lecciones</span></button>
+  <button class="nav" data-page="quiz">✓ <span>Quiz de redes</span></button>
+  <button class="nav" data-page="ar">◎ <span>Realidad aumentada</span></button>
+  <button class="nav" data-page="vr">▣ <span>Realidad virtual</span></button>
+  <button class="nav" data-page="profile">♙ <span>Mi perfil</span></button>
+  <div class="side-bottom"><span class="status-dot"></span> Progreso guardado en este dispositivo</div>
+</aside>
+<main id="main">
+<section class="page active" id="page-home">
+  <div class="hero">
+    <div class="hero-copy"><span class="eyebrow">APRENDE HACIENDO</span><h1>Las redes cobran vida<br><em>con NetQuest VR/AR</em></h1><p>Explora conceptos de redes, identifica dispositivos y practica en un centro de datos virtual con retos interactivos.</p><button class="btn primary" data-page="lessons">Comenzar aprendizaje <span>→</span></button></div>
+    <div class="hero-art"><div class="orbit orbit-a"></div><div class="orbit orbit-b"></div><div class="core">⌘<small>NETWORK</small></div><div class="node node-a">Router</div><div class="node node-b">Switch</div><div class="node node-c">Servidor</div><div class="node node-d">Firewall</div></div>
+  </div>
+  <div class="section-head"><div><span class="eyebrow">TU ESPACIO DE APRENDIZAJE</span><h2>Explora la plataforma</h2></div><span class="muted">Elige una experiencia para continuar</span></div>
+  <div class="feature-grid">
+    <button class="feature" data-page="lessons"><span class="feature-icon blue">▤</span><strong>Lecciones multimedia</strong><p>Aprende el modelo OSI y los fundamentos de redes.</p><span class="feature-link">Explorar lecciones →</span></button>
+    <button class="feature" data-page="ar"><span class="feature-icon green">◎</span><strong>Realidad aumentada</strong><p>Consulta fichas interactivas de dispositivos de red.</p><span class="feature-link">Abrir experiencia →</span></button>
+    <button class="feature" data-page="vr"><span class="feature-icon purple">▣</span><strong>Realidad virtual</strong><p>Resuelve retos en un centro de datos simulado.</p><span class="feature-link">Entrar al centro →</span></button>
+    <button class="feature" data-page="profile"><span class="feature-icon orange">♙</span><strong>Perfil y progreso</strong><p>Consulta tus puntos, nivel, insignias y avance.</p><span class="feature-link">Ver mi perfil →</span></button>
+  </div>
+  <div class="dashboard-strip"><div><span class="stat-icon">◷</span><span><small>Lecciones completadas</small><strong id="homeLessons">0 de 4</strong></span></div><div><span class="stat-icon">✓</span><span><small>Última puntuación</small><strong id="homeScore">Sin intentos</strong></span></div><div><span class="stat-icon">★</span><span><small>Puntos acumulados</small><strong id="homePoints">0 puntos</strong></span></div></div>
+</section>
+<section class="page" id="page-lessons">
+  <div class="page-heading"><span class="eyebrow">MÓDULO 01</span><h1>Lecciones multimedia</h1><p>Selecciona un tema para estudiar. Marca cada lección como completada para actualizar tu progreso.</p></div>
+  <div class="lesson-workspace"><div class="lesson-list" id="lessonList"></div><article class="lesson-view"><div class="lesson-top"><span class="pill">CONTENIDO EDUCATIVO</span><span id="lessonCount">Lección 1 de 4</span></div><h2 id="lessonTitle">Introducción a las redes</h2><p id="lessonIntro"></p><div id="lessonBody" class="lesson-body"></div><div class="lesson-actions"><button class="btn outline" id="prevLesson">← Anterior</button><button class="btn primary" id="completeLesson">Marcar como completada ✓</button><button class="btn outline" id="nextLesson">Siguiente →</button></div></article></div>
+</section>
+<section class="page" id="page-quiz">
+  <div class="page-heading"><span class="eyebrow">MÓDULO 02</span><h1>Quiz de redes</h1><p>Comprueba lo aprendido. El cuestionario contiene 10 preguntas con retroalimentación inmediata.</p></div>
+  <div class="quiz-wrap" id="quizWrap"><div class="quiz-progress"><span id="quizProgressText">Pregunta 1 de 10</span><span id="quizProgressPct">10%</span></div><div class="progress-track"><span id="quizProgressBar"></span></div><div class="quiz-card"><span class="pill">EVALUACIÓN</span><h2 id="questionText"></h2><div id="answerOptions" class="answer-options"></div><div id="answerFeedback" class="answer-feedback" aria-live="polite"></div><div class="quiz-footer"><span id="quizPoints">Puntos posibles: 100</span><button class="btn primary" id="submitAnswer">Comprobar respuesta</button><button class="btn primary hidden" id="nextQuestion">Siguiente pregunta →</button></div></div></div>
+  <div class="quiz-result hidden" id="quizResult"><div class="result-medal">★</div><span class="eyebrow">EVALUACIÓN FINALIZADA</span><h2 id="resultTitle">¡Buen trabajo!</h2><p id="resultMessage"></p><div class="result-score"><strong id="resultScore">0/100</strong><span>puntos obtenidos</span></div><button class="btn primary" id="retryQuiz">Volver a intentarlo</button> <button class="btn outline" data-page="lessons">Repasar lecciones</button></div>
+</section>
+<section class="page" id="page-ar">
+  <div class="page-heading"><span class="eyebrow">MÓDULO 03</span><h1>Laboratorio de realidad aumentada</h1><p>Selecciona un dispositivo para visualizar su ficha y un modelo ilustrativo. Puedes activar la cámara para explorar el espacio real.</p></div>
+  <div class="ar-layout"><div class="device-picker"><h3>Dispositivos de red</h3><p class="muted">Selecciona un equipo</p><div id="deviceButtons"></div><div class="camera-controls"><button class="btn primary" id="startCamera">Activar cámara</button><button class="btn outline" id="stopCamera">Detener cámara</button><p class="muted">La cámara requiere permiso del navegador y normalmente HTTPS o localhost.</p></div></div>
+  <div class="ar-preview"><div class="preview-head"><span><i class="live-dot"></i> VISTA DE EXPLORACIÓN</span><span id="cameraState">Modo de demostración</span></div><div class="camera-stage"><video id="cameraVideo" autoplay muted playsinline></video><div class="camera-overlay" id="cameraOverlay"><div class="scan-corner c1"></div><div class="scan-corner c2"></div><div class="scan-corner c3"></div><div class="scan-corner c4"></div><div class="device-model" id="deviceModel"><div class="model-top"></div><div class="model-front"><span class="leds">● ● ● ● ● ●</span><b>NETQUEST</b></div><div class="model-side"></div></div><div class="scan-hint">Vista de dispositivo 3D ilustrativa</div></div></div><div class="device-detail"><div><span class="pill" id="deviceType">CAPA 2 · ENLACE</span><h2 id="deviceName">Switch</h2><p id="deviceDescription"></p></div><div class="detail-facts"><span><small>Función</small><b id="deviceFunction"></b></span><span><small>Ejemplo de uso</small><b id="deviceUse"></b></span></div></div></div></div>
+</section>
+<section class="page" id="page-vr">
+  <div class="page-heading"><span class="eyebrow">MÓDULO 04</span><h1>Centro de datos virtual</h1><p>Explora una simulación interactiva y completa los retos de cableado, direccionamiento IP y diagnóstico.</p></div>
+  <div class="vr-workspace"><div class="datacenter" id="datacenter"><div class="dc-label">CENTRO DE DATOS · SIMULACIÓN 3D</div><div class="dc-floor"></div><div class="server-rack rack1"><span>SERVER 01</span><i></i><i></i><i></i><i></i><i></i></div><div class="server-rack rack2"><span>SERVER 02</span><i></i><i></i><i></i><i></i><i></i></div><div class="server-rack rack3"><span>NETWORK</span><i></i><i></i><i></i><i></i><i></i></div><svg class="cables" viewBox="0 0 600 240" preserveAspectRatio="none"><path d="M90 160 C150 90 220 210 300 120 S420 170 520 100" fill="none" stroke="#20d8ff" stroke-width="3" stroke-dasharray="7 5"/></svg><div class="dc-controls"><button id="rotateRoom">⟳ Girar vista</button><button id="lightsRoom">☼ Cambiar iluminación</button></div></div><div class="challenge-side"><span class="pill">MISIÓN GUIADA</span><h2>Retos de redes</h2><p class="muted">Completa cada tarea para finalizar la misión.</p><div class="challenge-item active" data-challenge="0"><b>1</b><div><strong>Conexión de cables</strong><small>Selecciona el puerto correcto del rack.</small></div><span class="challenge-state">○</span></div><div class="challenge-item" data-challenge="1"><b>2</b><div><strong>Direcciones IP</strong><small>Configura una IP válida para el servidor.</small></div><span class="challenge-state">○</span></div><div class="challenge-item" data-challenge="2"><b>3</b><div><strong>Detectar una falla</strong><small>Identifica el equipo desconectado.</small></div><span class="challenge-state">○</span></div><div id="challengeTask" class="challenge-task"></div><div id="challengeFeedback" class="answer-feedback"></div><button class="btn primary full" id="checkChallenge">Comprobar reto</button><button class="btn outline full hidden" id="nextChallenge">Siguiente reto →</button><div class="mission-progress"><span id="missionProgress"></span></div><small id="missionCount">0 de 3 retos completados</small></div></div>
+</section>
+<section class="page" id="page-profile">
+  <div class="page-heading"><span class="eyebrow">TU ESPACIO PERSONAL</span><h1>Mi perfil</h1><p>Tu avance se conserva en este navegador mediante almacenamiento local.</p></div>
+  <div class="profile-layout"><div class="profile-hero"><div class="avatar">👩‍💻</div><div><span class="pill">ESTUDIANTE</span><h2 id="profileName">Estudiante NetQuest</h2><p id="profileLevel">Nivel 1 · Explorador de redes</p></div><button class="btn outline" id="editName">Editar nombre</button></div><div class="profile-stats"><div class="profile-stat"><small>Puntos acumulados</small><strong id="profilePoints">0</strong><span>★</span></div><div class="profile-stat"><small>Lecciones completadas</small><strong id="profileLessons">0/4</strong><span>▤</span></div><div class="profile-stat"><small>Mejor quiz</small><strong id="profileBest">—</strong><span>✓</span></div></div><div class="profile-panels"><article class="panel"><h3>Mis insignias</h3><div class="badge-grid" id="badgeGrid"></div></article><article class="panel"><h3>Progreso de aprendizaje</h3><div id="profileProgress"></div></article></div><button class="btn outline" id="resetProgress">Restablecer progreso</button></div>
+</section>
+</main>
+</div>
+<footer class="footer"><div class="footer-brand">⌘ <strong>NetQuest <span>VR/AR</span></strong></div><p>Aprender redes es una aventura. <span>La tecnología al servicio de tu aprendizaje.</span></p><small>Prototipo educativo interactivo · 2026</small></footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="app.js"></script>
+</body></html>
